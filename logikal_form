@@ -1,0 +1,96 @@
+import './App.css';
+
+import {Component} from 'react';
+import * as XLSX from 'xlsx';
+import { TableHeader,TableRow } from './components/TableComponents';
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.type="file";
+    this.data = undefined;
+    this.state = {
+      file:"",
+      data:undefined,
+    };
+  }
+
+  showTableData = (data) =>{
+    console.log(data);
+    const headers = Object.keys(data[0]);
+    
+    return (
+      <table>
+        <thead>
+          <tr>
+            {headers.map((eachItem,index) => (<TableHeader header={eachItem} key={index}/>))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((eachItem,index) => {
+            
+            return (
+              <TableRow cellData = {eachItem} key ={index}/>
+              
+            )
+          })}
+        </tbody>
+      </table>
+    )
+  }
+  
+  
+  onChangeInput =(event) =>{
+    this.setState({file:event.target.files[0]});
+    
+  }
+  
+
+
+  onSubmitForm = (event) =>{
+    event.preventDefault();
+    const {file} = this.state;
+    const fileObj = file;
+    let fileReader = new FileReader();
+    fileReader.readAsArrayBuffer(fileObj);
+    fileReader.onload = (event) =>{
+      let bufferArray = event.target.result;
+      let workBook = XLSX.read(bufferArray,{type:"buffer"});
+      let workSheetName = workBook.SheetNames[0]
+      let workSheet = workBook.Sheets[workSheetName];
+      
+      this.data = XLSX.utils.sheet_to_json(workSheet);
+      this.setState({data:XLSX.utils.sheet_to_json(workSheet)})
+
+      
+      //this.showTableData(this.data);
+
+    }
+    
+  }
+  render (){
+    const data = this.state.data;
+    console.log(data);
+    return (
+      <div className='bg-container'>
+      <div className="form-page">
+        <form onSubmit={this.onSubmitForm}>
+          <h1>Please select your Excel file</h1>
+          <div>
+            <label>
+              choose your file
+            </label>
+            <input type={this.type} onChange={this.onChangeInput}/>
+          </div>
+          <button type="submit" className="submit-button">submit</button>
+        </form>
+        <hr className='horizontal-line'/>
+        {data !== undefined &&(
+          this.showTableData(data)
+        )}
+      </div>
+      </div>
+    )
+  }
+}
+
+export default App;
