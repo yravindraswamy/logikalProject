@@ -1,0 +1,82 @@
+
+POST http://localhost:3000/storeData
+Content-Type: application/json
+
+{
+    "name":"Ashok",
+    "data":[{
+    "name":"Ravindra",
+    "age":28,
+    "education":"B.Tech"},
+{
+    "name":"Ashok",
+    "age":29,
+    "education":"B.Tech"
+},
+{
+    "name":"Lovaraju",
+    "age":30,
+    "education":"Degree"
+},
+{
+    "name":"Anand",
+    "age":26,
+    "education":"B.Tech"
+}
+]
+}
+
+
+###
+
+POST http://localhost:3000/insert
+Content-Type: application/json
+
+{ "name":"excel",
+"data":
+    [
+    {id: 1, "name ": 'Ravindra', age: 27, education: 'B.tech', job: 'searching'},
+    {id: 2, "name ": 'Ashok', age: 28, education: 'B.tech', job: 'Army'},
+    {id: 3, "name ": 'Lovaraju', age: 29, education: 'Degree', job: 'Servyror'},
+    {id: 4, "name ": 'Ravindra', age: 30, education: 'B.tech', job: 'searching'},
+    {id: 5, "name ": 'Ashok', age: 31, education: 'B.tech', job: 'Army'},
+    {id: 6, "name ": 'Lovaraju', age: 32, education: 'Degree', job: 'Servyror'},
+    {id: 7, "name ": 'Ravindra', age: 33, education: 'B.tech', job: 'searching'},
+    {id: 8, "name ": 'Ravindra', age: 34, education: 'B.tech', job: 'searching'},
+    {id: 9, "name ": 'Ashok', age: 35, education: 'B.tech', job: 'Army'},
+    {id: 10, "name ": 'Lovaraju', age: 36, education: 'Degree', job: 'Servyror'},
+    {id: 11, "name ": 'Ravindra', age: 37, education: 'B.tech', job: 'searching'},
+    {id: 12, "name ": 'Ashok', age: 38, education: 'B.tech', job: 'Army'},
+    {id: 13, "name ": 'Ravindra', age: 39, education: 'B.tech', job: 'searching'},
+    {id: 14, "name ": 'Ashok', age: 40, education: 'B.tech', job: 'Army'},
+    {id: 15, "name ": 'Lovaraju', age: 41, education: 'Degree', job: 'Servyror'}
+    ]
+}
+###
+POST http://localhost:3000/insert
+Content-Type: application/json
+
+{"name":"Ashok",
+    "data":[
+{
+    "name":"Ravindra",
+    "age":28,
+    "education":"B.Tech"
+},
+{
+    "name":"Ashok",
+    "age":29,
+    "education":"B.Tech"
+},
+{
+    "name":"Lovaraju",
+    "age":30,
+    "education":"Degree"
+},
+{
+    "name":"Anand",
+    "age":26,
+    "education":"B.Tech"
+}
+]
+}

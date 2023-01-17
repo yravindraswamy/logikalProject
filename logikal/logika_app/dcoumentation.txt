@@ -1,0 +1,34 @@
+documentation of the react app
+
+npm install create-react-app --use
+create folder to write code. react providing managing project folders strucutre
+
+you can create the react app using the below command 
+
+create-react-app <folder-name>
+
+now your application is react application
+
+it some folders structure in that folder
+node_mdules--- all the modules required for the project
+public--- here you can place your resource required for your project
+src-- this is the folder containing the actual coded files, in this index.js is the main file
+it imports the app.js file, which is the place we can coded actually here
+
+I created some extra folders for the components
+components
+    TableComponents
+        index.js
+            TableHeader(this is a component for generating table headers)
+            TableRow(this is a component for generationg table rows)
+these two componets are imported APP.js file to use
+
+some other third party libraries used in this react app is:
+
+npm i xlsx -- this is sheetjs thirdparty tool for reading the excel file content
+Component from react
+this is used in App class component to extend and inheritance form Component
+
+I Created a form for taking input which is excel file
+
+
